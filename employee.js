@@ -18,6 +18,6 @@ getId () {
 }
 getRole() {
     return this.role;
-}
+};
 
 module.exports = Employee;
