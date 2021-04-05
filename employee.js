@@ -5,15 +5,15 @@ class Employee {
         this.id = id;
         this.role = role;
     }
-}
 
-getName () {
+
+getName() {
     return this.name;
 }
-getEmail () {
+getEmail() {
     return this.email;
 }
-getId () {
+getId() {
     return this.id;
 }
 getRole() {
