@@ -134,10 +134,26 @@ else if(answer.role === "Intern") {
     team.push(someIntern);
     addMore() 
 })
-
+else{
+    const someEmployee = new Employee(answer.name, answer.email, answer.id, answer.role)
+    team.push(someEmployee)
+    addMore()
+}
+function addMore() {
+    inquirer.prompt([{
+        type: "confirm",
+        name: "addNew",
+        message: "Add another team member?"
+    }])
+    .then(res => {
+        if (res.addNew === true) {
+            getInfo(team)
+        }else{
+            console.log("team", team)
+            let theCardsHtml = generatePage(team)
+            wroteHTML(theCardsHtml)
+        }
+    })
+}
 };
-
-
-
-
 
