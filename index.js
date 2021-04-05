@@ -1,20 +1,20 @@
 const team = []
 const Employee = require("./employee");
 const Engineer = require("./engineer");
-const Manager = require("./manager.test");
+const Manager = require("./manager");
 const Intern = require("./intern");
 
 const inquirer = ("inquirer");
 const fs = require("fs");
 
-const intern = (remainingInfo) => {
-    inquirer.prompt({message: "school?", "name": "first"})
-    .then(({first, ...rest}))
-},
-const manager = (remainingInfo) => {
-    inquirer.prompt({message: "Office Number:", "name": "first"})
-    .then(({first, ...rest}))
-}
+// const intern = (remainingInfo) => {
+//     inquirer.prompt({message: "school?", "name": "first"})
+//     .then(({first, ...rest}))
+// },
+// const manager = (remainingInfo) => {
+//     inquirer.prompt({message: "Office Number:", "name": "first"})
+//     .then(({first, ...rest}))
+// }
 
 function getInfo() {
     inquirer.prompt([{
@@ -33,17 +33,44 @@ function getInfo() {
     },
     {
         type: "input",
-        name: "name",
-        message: "Employee Name",
-        validate: nameInput => {
-            if (nameInput) {
+        name: "email",
+        message: "Email address",
+        validate: emailInput => {
+            if (emailInput) {
                 return true;
             }
             else {
-                console.log("Enter a team member name you would like to add")
+                console.log("Enter a email address you would like to add")
                 return false;
             }
         }
-    }])
+    },
+    {
+        type: "input",
+        name: "Employee id",
+        message: "Employee id",
+        validate: idInput => {
+            if (idInput) {
+                return true;
+            }
+            else {
+                console.log("Enter a team member id you would like to add")
+                return false;
+            }
+        }
+    },
+    {
+        type: "checkbox",
+        name: "role",
+        message: "Employee role",
+        choices: [
+            "Employee", 
+            "Engineer", 
+            "Manager", 
+            "Intern"
+        ]
+            },
+])
 }
+
 
