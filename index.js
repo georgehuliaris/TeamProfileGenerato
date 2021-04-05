@@ -71,6 +71,22 @@ function getInfo() {
         ]
             },
 ])
+.then(answers => {
+    if (answers. role === "Engineer") {
+        inquirer.prompt([{
+            type: "input",
+            name: "github",
+            message: "Please enter your github credentials",
+            validate: gitInput => {
+                if (gitInput) {
+                    return true;
+                } else {
+                    console.log("Please enter your github credentials")
+                }return false;
+            }
+        }])
+    }
+})
 }
 
 
