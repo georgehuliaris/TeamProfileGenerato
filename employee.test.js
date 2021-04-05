@@ -2,10 +2,10 @@ const Employee = require("./Employee.js")
 //{id: name: email:}
 
 describe("Employee constructor" , () => {
-    describe("Initialization", () => {
+    describe("Initialization" , () => {
 
         it("can be an instance of the Employee Class", () => {
-            expect(typeof new Employee().toBe("object");
+            expect(typeof new Employee()).toBe("object");
         })
           
         it ("should have a name property", () => {
