@@ -92,10 +92,8 @@ function getInfo() {
     console.log(answer.github)
     const someEngineer = new Engineer(answer.name, answer.email, answer.id, answer.role, answer.github) 
     team.push(someEngineer);
-    addMore() 
-    
-})
-else if(answer.role === "Manager") {
+    addMore()   
+}) else if(answer.role === "Manager") {
     inquirer.prompt([{
         type: "input",
         name: "office",
@@ -131,12 +129,12 @@ else if(answer.role === "Intern") {
     }])
 }
 .then(answer => {
-    console.log(answer.office)
+    console.log(answer.school)
     const someIntern = new Manager(answer.name, answer.email, answer.id, answer.role, answer.school) 
     team.push(someIntern);
     addMore() 
-    
 })
+
 };
 
 
