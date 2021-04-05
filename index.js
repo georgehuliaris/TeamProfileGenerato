@@ -9,3 +9,5 @@ const manager = (remainingInfo) => {
     inquirer.prompt({message: "Office Number:", "name": "first"})
     .then(({first, ...rest}))
 }
+
+ 
