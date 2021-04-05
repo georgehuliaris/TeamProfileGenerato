@@ -7,6 +7,7 @@ const Intern = require("./intern");
 const inquirer = ("inquirer");
 const fs = require("fs");
 
+
 // const intern = (remainingInfo) => {
 //     inquirer.prompt({message: "school?", "name": "first"})
 //     .then(({first, ...rest}))
@@ -67,12 +68,11 @@ function getInfo() {
             "Employee", 
             "Engineer", 
             "Manager", 
-            "Intern"
-        ]
-            },
+            "Intern"]
+            }
 ])
-.then(answers => {
-    if (answers. role === "Engineer") {
+.then(answer => {
+    if (answer.role === "Engineer") {
         inquirer.prompt([{
             type: "input",
             name: "github",
@@ -81,12 +81,65 @@ function getInfo() {
                 if (gitInput) {
                     return true;
                 } else {
-                    console.log("Please enter your github credentials")
-                }return false;
+                    console.log("Please enter github credentials")
+                return false;
+                }
             }
         }])
     }
 })
+.then(answer => {
+    console.log(answer.github)
+    const someEngineer = new Engineer(answer.name, answer.email, answer.id, answer.role, answer.github) 
+    team.push(someEngineer);
+    addMore() 
+    
+})
+else if(answer.role === "Manager") {
+    inquirer.prompt([{
+        type: "input",
+        name: "office",
+        message: "Office Phone Number",
+        validate: officeInput => {
+            if (officeInput) {
+                return true;
+            } else {
+                console.log("Please enter office phone number")
+            }return false;
+        }
+    }])
 }
+.then(answer => {
+    console.log(answer.office)
+    const someEngineer = new Manager(answer.name, answer.email, answer.id, answer.role, answer.office) 
+    team.push(someManager);
+    addMore() 
+    
+})
+else if(answer.role === "Intern") {
+    inquirer.prompt([{
+        type: "input",
+        name: "school",
+        message: "School graduated from",
+        validate: schoolInput => {
+            if (schoolInput) {
+                return true;
+            } else {
+                console.log("Please enter school that intern graduated from")
+            }return false;
+        }
+    }])
+}
+.then(answer => {
+    console.log(answer.office)
+    const someIntern = new Manager(answer.name, answer.email, answer.id, answer.role, answer.school) 
+    team.push(someIntern);
+    addMore() 
+    
+})
+};
+
+
+
 
 
