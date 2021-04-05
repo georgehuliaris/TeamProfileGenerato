@@ -10,4 +10,3 @@ const manager = (remainingInfo) => {
     .then(({first, ...rest}))
 }
 
- 
