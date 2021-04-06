@@ -78,11 +78,11 @@ function getInfo() {
     switch (role) {
         case 'Engineer' : getEngineer(res); 
         break;
-        case 'Manager' : // getManager(res);
+        case 'Manager' : getManager(res);
         break;
-        case 'Intern' : // getIntern(res);
+        case 'Intern' : getIntern(res);
         break;
-        case 'Employee': // buildHtml();
+        case 'Employee': buildHtml();
         break;
         default: 
         console.log(`error: must provide role`);
@@ -112,10 +112,52 @@ function getEngineer(employee) {
         console.log(res);
         const someEngineer = new Engineer(employee.name, employee.email, employee.employeeId, employee.role[0], res.github);
         team.push(someEngineer);
-        console.log(team);
-        // addMore()   
+        console.log(team);  
     });
 }
+function getManager(employee) {
+    inquirer.prompt([{
+        type: "input",
+        name: "office",
+        message: "Please enter office phone number",
+        validate: gitInput => {
+            if (gitInput) {
+                return true;
+            } else {
+                console.log("Please enter office phone number")
+            return false;
+            }
+        }
+    }])
+    .then(res => {
+        console.log(res);
+        const someManager = new Manager(employee.name, employee.email, employee.employeeId, employee.role[0], res.github);
+        team.push(someManager);
+        console.log(team);  
+    });
+}
+function getIntern(employee) {
+    inquirer.prompt([{
+        type: "input",
+        name: "school",
+        message: "Please enter school name",
+        validate: gitInput => {
+            if (gitInput) {
+                return true;
+            } else {
+                console.log("Please enter school name")
+            return false;
+            }
+        }
+    }])
+    .then(res => {
+        console.log(res);
+        const someIntern = new Manager(employee.name, employee.email, employee.employeeId, employee.role[0], res.github);
+        team.push(someIntern);
+        console.log(team);  
+    });
+}
+
 
 // else if(answer.role === "Manager") {
 //     inquirer.prompt([{
